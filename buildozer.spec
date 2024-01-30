@@ -15,7 +15,7 @@ package.name = myapp_rotation
 package.domain = org.test
 
 # (str) Source code where the main.py live
-source.dir = .
+source.dir = ./buildozer_test
 
 # (list) Source files to include (leave empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
