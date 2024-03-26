@@ -2,7 +2,7 @@
 from kivymd.app import MDApp
 from kivymd.toast import toast
 from kivy.uix.button import Button
-from plyer import permission
+# from plyer import permission
 from kivy.utils import platform
 
 
@@ -55,6 +55,7 @@ class CameraApp(MDApp):
         if platform == 'android':
             if not check_permission(Permission.CAMERA):
                 request_permissions([Permission.CAMERA])
+        else: toast('Platform not supported',duration=1.2)
 
 if __name__ == '__main__':
     CameraApp().run()
