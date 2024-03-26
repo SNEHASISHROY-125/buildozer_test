@@ -23,6 +23,18 @@ class CameraApp(MDApp):
 
     def build(self):
         from kivy.utils import platform
+        
+        if platform == 'android':
+            from android.permissions import Permission, request_permissions, check_permission
+
+            # from android.permissions import request_permissions, Permission
+            request_permissions([Permission.CAMERA])    
+        button = MDIconButton(text='Request Camera Permission', on_press=self.show_toast)
+        return Builder.load_string(kv)
+    
+    def on_start(self):
+        # return super().on_start()
+        print('on_start')
         if platform == 'android':
             from jnius import autoclass
             from android.permissions import Permission, request_permissions, check_permission
@@ -37,12 +49,6 @@ class CameraApp(MDApp):
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             )
             window.setStatusBarColor(0x00000000)
-        if platform == 'android':
-            
-            # from android.permissions import request_permissions, Permission
-            request_permissions([Permission.CAMERA])    
-        button = MDIconButton(text='Request Camera Permission', on_press=self.show_toast)
-        return Builder.load_string(kv)
 
 
     def show_toast(self, t):
