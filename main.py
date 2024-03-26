@@ -10,6 +10,7 @@ from kivy.uix.button import Button
 
 from kivymd.uix.button import MDIconButton
 from kivy.lang import Builder
+from kivy.utils import platform
 
 kv = '''
 Screen: 
@@ -19,10 +20,10 @@ Screen:
         on_press: app.show_toast('test')
 '''
 
+        
 class CameraApp(MDApp):
 
     def build(self):
-        from kivy.utils import platform
         
         if platform == 'android':
             from android.permissions import Permission, request_permissions, check_permission
