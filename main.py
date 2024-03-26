@@ -3,7 +3,7 @@ from kivymd.app import MDApp
 from kivymd.toast import toast
 from kivy.uix.button import Button
 # from plyer import permission
-from kivy.utils import platform
+# from kivy.utils import platform
 
 
 from kivy.utils import platform
